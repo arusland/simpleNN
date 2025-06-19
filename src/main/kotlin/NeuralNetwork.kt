@@ -4,14 +4,16 @@ class NeuralNetwork(val learningRate: Double,
                     val layers: List<Layer>,
                     val activation: (Double) -> Double,
 ) {
-    fun train(x: Array<DoubleArray>, y: Array<Double>) {
-        x.forEachIndexed { index, input ->
-            forward(input, y[index])
+    fun init() {
+        // Initialize the weights and biases for each layer
+        for (index in 0 until layers.size - 1) {
+            val layer = layers[index]
+            layer.init(layers[index + 1].size)
         }
     }
 
-    private fun forward(inputs: DoubleArray, y: Double) {
-        val prevNeurons = inputs.clone()
+    fun train(x: Array<DoubleArray>, y: Array<Double>) {
+        val prevNeurons = x[0]
         for (index in 1..layers.size) {
             val prevLayer =  layers[index - 1]
             val layer = layers[index]
@@ -20,5 +22,4 @@ class NeuralNetwork(val learningRate: Double,
 
         }
     }
-
 }

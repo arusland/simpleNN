@@ -1,6 +1,4 @@
-
-
-class Matrix(val rows: Int, var cols: Int) {
+class Matrix(val rows: Int, var cols: Int) : Iterable<Vector> {
     private val data: Array<Vector> = Array(rows) { Vector.of(cols) }
 
     /**
@@ -16,11 +14,11 @@ class Matrix(val rows: Int, var cols: Int) {
     /**
      * Multiplies this matrix by a vector.
      */
-    operator fun times(vector: DoubleArray): DoubleArray {
+    operator fun times(vector: DoubleArray): Vector {
         if (vector.size != cols) {
             error("Vector size (${vector.size}) must match the number of columns in the matrix ($cols).")
         }
-        val result = DoubleArray(rows)
+        val result = Vector(rows)
         for (row in 0 until rows) {
             var sum = 0.0
             for (col in 0 until cols) {
@@ -30,6 +28,8 @@ class Matrix(val rows: Int, var cols: Int) {
         }
         return result
     }
+
+    override fun iterator(): Iterator<Vector> = data.iterator()
 
     override fun toString(): String {
         return buildString {
