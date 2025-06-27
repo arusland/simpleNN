@@ -12,6 +12,7 @@ class NeuralNetwork(
     vararg layers: Layer
 ) {
     val layers = layers.toMutableList()
+    var progressHandler: ((TrainResult) -> Unit)? = null
 
     fun init() {
         // Initialize the weights and biases for each layer
@@ -32,8 +33,7 @@ class NeuralNetwork(
         labels: IntArray,
         epoch: Int = 1000,
         batchSize: Int = 1,
-        progressStep: Int = 100,
-        progressHandler: (TrainResult) -> Unit = {}
+        progressStep: Int = 100
     ) {
         val classSize = layers.last().size
         val targets = Vector(classSize)
@@ -67,7 +67,7 @@ class NeuralNetwork(
             if (epoch % progressStep == 0) {
                 val accuracy = correct.toDouble() / batchSize
                 println("Epoch $epoch: Accuracy = $accuracy, Error Sum = $errorSum")
-                progressHandler(TrainResult(accuracy, errorSum, epoch))
+                progressHandler?.invoke(TrainResult(accuracy, errorSum, epoch))
             }
         }
     }

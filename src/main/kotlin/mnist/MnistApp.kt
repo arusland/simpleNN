@@ -30,6 +30,9 @@ class MnistApp {
                 Layer(size = 10) // Output layer for 10 classes (digits 0-9)
             )
             model.init()
+            model.progressHandler = { result ->
+                ChartUtils.addDataPoint(result.epoch, result.accuracy)
+            }
 
             println("Listing images in the directory...")
             val imagesDir = Paths.get("/home/ruslan/Downloads/MNIST_CSV/images/train")
@@ -59,9 +62,7 @@ class MnistApp {
                 bufferedImages[i] = null
             }
             println("Training the model...")
-            model.train(trainingData, labels, epoch = 5_000, batchSize = 100, progressStep = 50, progressHandler = { result ->
-                ChartUtils.addDataPoint(result.epoch, result.accuracy)
-            })
+            model.train(trainingData, labels, epoch = 5_000, batchSize = 100, progressStep = 50)
             println("Training completed")
         }
     }
