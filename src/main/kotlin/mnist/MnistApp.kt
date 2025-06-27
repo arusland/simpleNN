@@ -4,6 +4,7 @@ import math.Matrix
 import nn.ActivationFunction
 import nn.Layer
 import nn.NeuralNetwork
+import utils.ChartUtils
 import java.awt.image.BufferedImage
 import java.nio.file.Paths
 import javax.imageio.ImageIO
@@ -17,6 +18,8 @@ class MnistApp {
          */
         @JvmStatic
         fun main(args: Array<String>) {
+            ChartUtils.createChart()
+
             val model = NeuralNetwork(
                 learningRate = 0.001,
                 activation = ActivationFunction.SIGMOID,
@@ -54,7 +57,9 @@ class MnistApp {
                 labels[i] = imageFiles[i].fileName.toString()[0].toString().toInt() // Extract label from filename
             }
             println("Training the model...")
-            model.train(trainingData, labels, epoch = 5_000, batchSize = 100)
+            model.train(trainingData, labels, epoch = 5_000, batchSize = 100, progressStep = 50, progressHandler = { result ->
+                ChartUtils.addDataPoint(result.epoch, result.accuracy)
+            })
             println("Training completed")
         }
     }

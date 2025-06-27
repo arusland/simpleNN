@@ -27,7 +27,14 @@ class NeuralNetwork(
      * @param inputs The input data as a matrix where each row is an input vector.
      * @param labels The labels for the input data as an array of class indices.
      */
-    fun train(inputs: Matrix, labels: IntArray, epoch: Int = 1000, batchSize: Int = 1) {
+    fun train(
+        inputs: Matrix,
+        labels: IntArray,
+        epoch: Int = 1000,
+        batchSize: Int = 1,
+        progressStep: Int = 100,
+        progressHandler: (TrainResult) -> Unit = {}
+    ) {
         val classSize = layers.last().size
         val targets = Vector(classSize)
 
@@ -57,9 +64,10 @@ class NeuralNetwork(
                 backward(targets)
             }
             // Print progress
-            if (epoch % 100 == 0) {
+            if (epoch % progressStep == 0) {
                 val accuracy = correct.toDouble() / batchSize
                 println("Epoch $epoch: Accuracy = $accuracy, Error Sum = $errorSum")
+                progressHandler(TrainResult(accuracy, errorSum, epoch))
             }
         }
     }
@@ -101,3 +109,9 @@ class NeuralNetwork(
         }
     }
 }
+
+data class TrainResult(
+    val accuracy: Double,
+    val errorSum: Double,
+    val epoch: Int
+)
