@@ -1,0 +1,55 @@
+Listing images in the directory...
+Loading 60000 images from /home/ruslan/Downloads/MNIST_CSV/images/train...
+Converting images to training data...
+Training the model...
+Epoch 100: Accuracy = 0.82, Error Sum = 41.423846426098805
+Epoch 200: Accuracy = 0.89, Error Sum = 29.420212643488878
+Epoch 300: Accuracy = 0.92, Error Sum = 23.132170731531694
+Epoch 400: Accuracy = 0.87, Error Sum = 24.020279172122663
+Epoch 500: Accuracy = 0.93, Error Sum = 15.456062034839235
+Epoch 600: Accuracy = 0.9, Error Sum = 17.33126375233969
+Epoch 700: Accuracy = 0.96, Error Sum = 11.762646873063762
+Epoch 800: Accuracy = 0.93, Error Sum = 14.635969593489415
+Epoch 900: Accuracy = 0.94, Error Sum = 14.033578789907587
+Epoch 1000: Accuracy = 0.94, Error Sum = 11.90100928067959
+Epoch 1100: Accuracy = 0.93, Error Sum = 13.218923477151527
+Epoch 1200: Accuracy = 0.96, Error Sum = 11.879866258777938
+Epoch 1300: Accuracy = 0.95, Error Sum = 11.502791894618078
+Epoch 1400: Accuracy = 0.95, Error Sum = 8.996245891935528
+Epoch 1500: Accuracy = 0.95, Error Sum = 8.862772519783919
+Epoch 1600: Accuracy = 0.96, Error Sum = 8.978632331269988
+Epoch 1700: Accuracy = 0.94, Error Sum = 11.262374462724722
+Epoch 1800: Accuracy = 0.94, Error Sum = 10.186624618629066
+Epoch 1900: Accuracy = 0.93, Error Sum = 12.450445325385152
+Epoch 2000: Accuracy = 1.0, Error Sum = 3.469689932064359
+Epoch 2100: Accuracy = 0.96, Error Sum = 7.988603416490523
+Epoch 2200: Accuracy = 0.92, Error Sum = 12.222533806794685
+Epoch 2300: Accuracy = 0.97, Error Sum = 5.2031719427509895
+Epoch 2400: Accuracy = 0.98, Error Sum = 4.819280119905705
+Epoch 2500: Accuracy = 0.97, Error Sum = 7.7053878615027225
+Epoch 2600: Accuracy = 0.96, Error Sum = 9.84194188637327
+Epoch 2700: Accuracy = 0.94, Error Sum = 10.199120504716278
+Epoch 2800: Accuracy = 0.96, Error Sum = 7.547091691114273
+Epoch 2900: Accuracy = 0.99, Error Sum = 2.8010382658671524
+Epoch 3000: Accuracy = 0.95, Error Sum = 8.273918925404658
+Epoch 3100: Accuracy = 0.98, Error Sum = 5.5301967179857625
+Epoch 3200: Accuracy = 0.96, Error Sum = 8.581787615300756
+Epoch 3300: Accuracy = 0.97, Error Sum = 7.451289507434247
+Epoch 3400: Accuracy = 0.97, Error Sum = 5.594024122974491
+Epoch 3500: Accuracy = 0.95, Error Sum = 7.851332898966086
+Epoch 3600: Accuracy = 0.94, Error Sum = 10.991256489843181
+Epoch 3700: Accuracy = 0.93, Error Sum = 10.724427163382865
+Epoch 3800: Accuracy = 0.95, Error Sum = 7.8314811109921205
+Epoch 3900: Accuracy = 0.95, Error Sum = 8.29030261623309
+Epoch 4000: Accuracy = 0.98, Error Sum = 5.179437156305945
+Epoch 4100: Accuracy = 0.96, Error Sum = 8.200347636288988
+Epoch 4200: Accuracy = 0.95, Error Sum = 7.9007643296951295
+Epoch 4300: Accuracy = 0.98, Error Sum = 4.250503356778944
+Epoch 4400: Accuracy = 0.98, Error Sum = 3.415866060176017
+Epoch 4500: Accuracy = 0.96, Error Sum = 6.240412819473185
+Epoch 4600: Accuracy = 0.98, Error Sum = 6.770221626373563
+Epoch 4700: Accuracy = 0.99, Error Sum = 3.5032970741479863
+Epoch 4800: Accuracy = 0.97, Error Sum = 5.3687255108917915
+Epoch 4900: Accuracy = 0.96, Error Sum = 7.233727808809809
+Epoch 5000: Accuracy = 0.95, Error Sum = 9.275970490972306
+Training completed
