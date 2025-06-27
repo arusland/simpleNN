@@ -55,6 +55,8 @@ class MnistApp {
                     }
                 }
                 labels[i] = imageFiles[i].fileName.toString()[0].toString().toInt() // Extract label from filename
+                // clear the image to free memory
+                bufferedImages[i] = null
             }
             println("Training the model...")
             model.train(trainingData, labels, epoch = 5_000, batchSize = 100, progressStep = 50, progressHandler = { result ->
