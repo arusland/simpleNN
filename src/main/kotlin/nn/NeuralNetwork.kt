@@ -37,6 +37,7 @@ class NeuralNetwork(
     ) {
         val classSize = layers.last().size
         val targets = Vector(classSize)
+        val samplesUsed = mutableSetOf<Int>()
 
         for (epoch in 1..epoch) {
             var correct = 0
@@ -44,6 +45,7 @@ class NeuralNetwork(
             for (batch in 1..batchSize) {
                 val inputIndex = (Math.random() * inputs.rows).toInt()
                 // prepare target/known vector
+                samplesUsed.add(inputIndex)
                 val label = labels[inputIndex]
                 targets.fill(0.0) // Reset targets for each input
                 targets[label] = 1.0 // Set the target for the correct class
@@ -66,8 +68,9 @@ class NeuralNetwork(
             // Print progress
             if (epoch % progressStep == 0) {
                 val accuracy = correct.toDouble() / batchSize
-                println("Epoch $epoch: Accuracy = $accuracy, Error Sum = $errorSum")
-                progressHandler?.invoke(TrainResult(accuracy, errorSum, epoch))
+                val inputsUsage = samplesUsed.size.toDouble() * 100.0 / inputs.rows
+                println("Epoch $epoch: Accuracy = $accuracy, Error Sum = $errorSum, Inputs used = $inputsUsage%")
+                progressHandler?.invoke(TrainResult(accuracy, errorSum, epoch, inputsUsage))
             }
         }
     }
@@ -113,5 +116,6 @@ class NeuralNetwork(
 data class TrainResult(
     val accuracy: Double,
     val errorSum: Double,
-    val epoch: Int
+    val epoch: Int,
+    val inputsUsage: Double // percentage
 )
